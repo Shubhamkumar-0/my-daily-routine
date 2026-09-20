@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Daily Routine</title>
+<style>
+:root{--green:#16834a;--green2:#e7f5eb;--ink:#172238;--muted:#69758a;--line:#e2e8ef;--bg:#f7f9fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:#fff;border-right:1px solid var(--line);padding:28px 18px;display:flex;flex-direction:column;gap:22px}.brand{font-size:21px;font-weight:800;line-height:1.15}.brand span{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:6px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;text-align:left;padding:12px 14px;border-radius:10px;color:#4e5b70;font:inherit;cursor:pointer}.nav button.active,.nav button:hover{background:var(--green2);color:var(--green);font-weight:700}.quote{margin-top:auto;background:var(--green2);padding:18px;border-radius:12px;color:#3c604a}.main{padding:28px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}.top h1{font-size:30px;margin:0}.sub{color:var(--muted);margin-top:4px}.datebar{display:flex;gap:8px;align-items:center}.datebar input,.datebar button{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;font:inherit}.intent{background:var(--green2);padding:18px;border-radius:13px;margin-bottom:24px}.intent label{font-weight:750;display:block;margin-bottom:10px}.intentrow{display:flex;gap:10px}.intent input{flex:1;min-width:0}.input, input,select,textarea{font:inherit;border:1px solid #dce3eb;border-radius:8px;padding:11px 12px;background:#fff;color:var(--ink)}button{cursor:pointer}.primary{background:var(--green);color:#fff;border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:650}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(280px,1fr);gap:24px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 12px}.sectionhead h2{font-size:20px;margin:0}.muted{color:var(--muted);font-size:13px}.task{display:grid;grid-template-columns:26px 70px minmax(0,1fr) auto 34px 34px;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:8px}.task.done .taskname{text-decoration:line-through;color:#8792a3}.task input[type=checkbox]{width:19px;height:19px;accent-color:var(--green)}.time{color:#59667b;font-size:14px}.taskname{font-weight:650}.desc{font-size:13px;color:var(--muted)}.tag{font-size:12px;font-weight:650;border-radius:7px;padding:6px 9px;background:#edf1f7;white-space:nowrap}.tag.Health{background:#e5f5e8;color:#28713d}.tag.Work{background:#eee6ff;color:#6841b5}.tag.Food{background:#fff0df;color:#a75b14}.tag.Personal{background:#e3efff;color:#2467b4}.iconbtn{border:0;background:transparent;color:#647187;font-size:17px;padding:5px}.right{display:grid;gap:18px;align-content:start}.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:17px}.panel h3{margin:0 0 14px;font-size:18px}.progressrow{display:flex;align-items:center;gap:22px}.ring{width:110px;height:110px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) var(--pct,0%),#edf0f3 0);position:relative;flex-shrink:0}.ring:before{content:"";position:absolute;inset:12px;background:white;border-radius:50%}.ring strong{z-index:1;font-size:20px}.stats{display:grid;gap:8px;color:#59667b}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:8px}.quickform{display:grid;gap:9px}.quickform button{width:100%}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:0;border-radius:7px;padding:8px 12px;background:#edf1f7}.chip.Health{background:#e5f5e8;color:#28713d}.chip.Work{background:#eee6ff;color:#6841b5}.chip.Food{background:#fff0df;color:#a75b14}.chip.Personal{background:#e3efff;color:#2467b4}.notes textarea{width:100%;min-height:110px;resize:vertical}.footer{text-align:center;color:var(--muted);border-top:1px solid var(--line);padding:22px;margin-top:28px}.empty{text-align:center;color:var(--muted);padding:28px;background:#fff;border:1px dashed var(--line);border-radius:10px}
+.modalback{position:fixed;inset:0;background:#17223866;display:none;place-items:center;padding:18px;z-index:4}.modalback.open{display:grid}.modal{background:#fff;border-radius:14px;padding:22px;width:min(480px,100%);box-shadow:0 20px 70px #0002}.modal h2{margin:0 0 16px}.modal form{display:grid;gap:10px}.modal .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}.secondary{border:1px solid var(--line);background:#fff;border-radius:8px;padding:10px 14px;font:inherit}
+.heatpanel{margin-bottom:24px}.streak{background:#fff0df;color:#a75b14;padding:8px 12px;border-radius:9px;font-weight:750;white-space:nowrap}.heatmeta{display:flex;justify-content:space-between;align-items:center;margin:10px 0}.heatmeta .muted{display:flex;align-items:center;gap:4px}.heatbox{display:inline-block;width:12px;height:12px;border-radius:3px;background:#ebeff2}.heatbox.l1{background:#ccebd5}.heatbox.l2{background:#8bd3a1}.heatbox.l3{background:#45b96c}.heatbox.l4{background:#16834a}.heatmap{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,13px);grid-auto-columns:13px;gap:4px;overflow-x:auto;padding:7px 2px 12px}.heatday{width:13px;height:13px;border:0;border-radius:3px;background:#ebeff2;padding:0;cursor:pointer}.heatday.l1{background:#ccebd5}.heatday.l2{background:#8bd3a1}.heatday.l3{background:#45b96c}.heatday.l4{background:#16834a}.heatday.selected{outline:2px solid var(--ink);outline-offset:2px}.heatday:focus-visible{outline:2px solid var(--green);outline-offset:2px}@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{padding:15px;gap:12px;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(4,1fr)}.nav button{padding:9px;text-align:center}.quote{display:none}.main{padding:18px}.layout{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.task{grid-template-columns:24px 62px minmax(0,1fr) 32px 32px}.task .tag{display:none}}
+@media(max-width:480px){.nav{grid-template-columns:repeat(2,1fr)}.task{gap:7px;padding:10px 8px}.time{font-size:12px}.taskname{font-size:14px}.desc{font-size:12px}.intentrow{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">🍃 My Daily Routine<span>Plan today. A better you tomorrow.</span></div>
+  <nav class="nav"><button class="active" data-view="today">⌂ &nbsp; Today</button><button data-view="calendar">▦ &nbsp; Calendar</button><button data-view="routines">☷ &nbsp; My Routines</button><button data-view="notes">▤ &nbsp; Notes</button></nav>
+  <div class="quote">☀️ “Small steps every day lead to big results.”</div>
+</aside>
+<main class="main">
+  <header class="top"><div><h1 id="greeting">Good day! ☀️</h1><div class="sub">Let's make today productive.</div></div><div class="datebar"><button id="prev" aria-label="Previous day">‹</button><input type="date" id="date"><button id="next" aria-label="Next day">›</button><button class="secondary" id="todayBtn">Today</button></div></header>
+  <section class="intent"><label for="intention">🍃 &nbsp; Set your intention for today</label><div class="intentrow"><input id="intention" placeholder="e.g. Stay focused, be kind, and make progress."><button class="primary" id="saveIntent">Save</button></div></section>
+  <section class="panel heatpanel">
+    <div class="sectionhead"><div><h2>🔥 Daily Activity</h2><div class="muted">Your routine consistency, like a LeetCode activity calendar.</div></div><div class="streak" id="streak">🔥 0-day streak</div></div>
+    <div class="heatmeta"><strong id="activeDays">0 active days</strong><span class="muted">Less <i class="heatbox l0"></i><i class="heatbox l1"></i><i class="heatbox l2"></i><i class="heatbox l3"></i><i class="heatbox l4"></i> More</span></div>
+    <div class="heatmap" id="heatmap" aria-label="Daily activity calendar"></div>
+    <div class="muted" id="heatHint">Complete at least one task to mark a day active. Select a date to open its plan.</div>
+  </section>
+  <div class="layout">
+    <section><div class="sectionhead"><div><h2>☑ Today's Plan</h2><div class="muted">Add, edit, complete or update your tasks for the day.</div></div><button class="primary" id="addTask">＋ Add Task</button></div><div id="tasks"></div></section>
+    <aside class="right">
+      <section class="panel"><h3>◴ Today's Progress</h3><div class="progressrow"><div class="ring" id="ring"><strong id="percent">0%</strong></div><div class="stats"><div><span class="dot"></span><b id="completed">0</b> completed</div><div>● &nbsp;<b id="remaining">0</b> remaining</div><div>● &nbsp;<b id="total">0</b> total</div></div></div></section>
+      <section class="panel"><h3>⊕ Quick Add Task</h3><form class="quickform" id="quickForm"><input id="quickName" placeholder="Task name..." required><select id="quickCategory"><option>Personal</option><option>Work</option><option>Health</option><option>Food</option></select><input id="quickTime" type="time"><button class="primary">Add Task</button></form></section>
+      <section class="panel"><h3>▱ Categories</h3><div class="chips"><span class="chip Health">Health</span><span class="chip Work">Work</span><span class="chip Food">Food</span><span class="chip Personal">Personal</span></div></section>
+      <section class="panel notes" id="notesPanel"><h3>▤ Notes for Today</h3><textarea id="notes" placeholder="Write anything... ideas, reminders, thoughts"></textarea><button class="primary" id="saveNotes" style="margin-top:9px">Save Note</button><div class="muted" id="noteStatus" style="margin-top:7px"></div></section>
+    </aside>
+  </div>
+  <div class="footer">You've got this! 💚</div>
+</main></div>
+<div class="modalback" id="modal"><div class="modal"><h2 id="modalTitle">Add a task</h2><form id="taskForm"><input id="taskName" placeholder="Task name" required><input id="taskDesc" placeholder="Description (optional)"><div style="display:grid;grid-template-columns:1fr 1fr;gap:9px"><input id="taskTime" type="time"><select id="taskCategory"><option>Personal</option><option>Work</option><option>Health</option><option>Food</option></select></div><div class="actions"><button type="button" class="secondary" id="cancel">Cancel</button><button class="primary">Save task</button></div></form></div></div>
+<script>
+const $=id=>document.getElementById(id);
+const todayISO=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+let selected=todayISO(), editId=null, data=load();
+function load(){try{return JSON.parse(localStorage.getItem('dailyRoutineV1')||'{}')}catch{return {}}}
+function persist(){localStorage.setItem('dailyRoutineV1',JSON.stringify(data))}
+function day(){if(!data[selected])data[selected]={tasks:[],intention:'',notes:''};return data[selected]}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function escapeHTML(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+ $('date').value=selected;
+ const hour=new Date().getHours();$('greeting').textContent=(hour<12?'Good morning':hour<18?'Good afternoon':'Good evening')+'! ☀️';
+ $('intention').value=day().intention||'';$('notes').value=day().notes||'';
+ const tasks=[...day().tasks].sort((a,b)=>(a.time||'99:99').localeCompare(b.time||'99:99'));
+ $('tasks').innerHTML=tasks.length?tasks.map(t=>`<div class="task ${t.done?'done':''}"><input type="checkbox" aria-label="Complete ${escapeHTML(t.name)}" ${t.done?'checked':''} onchange="toggleTask('${t.id}',this.checked)"><span class="time">${t.time?fmtTime(t.time):'Anytime'}</span><div><div class="taskname">${escapeHTML(t.name)}</div>${t.desc?`<div class="desc">${escapeHTML(t.desc)}</div>`:''}</div><span class="tag ${escapeHTML(t.category)}">${escapeHTML(t.category)}</span><button class="iconbtn" title="Edit" aria-label="Edit task" onclick="editTask('${t.id}')">✎</button><button class="iconbtn" title="Delete" aria-label="Delete task" onclick="deleteTask('${t.id}')">▤</button></div>`).join(''):'<div class="empty">No tasks yet. Add your first task to plan the day 🌱</div>';
+ const total=tasks.length,done=tasks.filter(t=>t.done).length,pct=total?Math.round(done/total*100):0;
+ $('percent').textContent=pct+'%';$('ring').style.setProperty('--pct',pct+'%');$('completed').textContent=done;$('remaining').textContent=total-done;$('total').textContent=total;
+ renderHeatmap();
+}
+function dayScore(key){const d=data[key];if(!d||!d.tasks||!d.tasks.length)return 0;const n=d.tasks.filter(t=>t.done).length;return n===0?0:Math.min(4,Math.ceil(n/d.tasks.length*4))}
+function renderHeatmap(){
+ const end=new Date(selected+'T12:00:00');const start=new Date(end);start.setDate(start.getDate()-363);
+ // Align first cell to Sunday; show a 52-week window ending on selected date.
+ start.setDate(start.getDate()-start.getDay());
+ const days=[];for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1))days.push(new Date(d));
+ $('heatmap').innerHTML=days.map(d=>{const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;const score=dayScore(key);return `<button class="heatday l${score} ${key===selected?'selected':''}" title="${key}: ${score?score+' activity level':'no completed tasks'}" aria-label="Open ${key}" onclick="selectHeatDate('${key}')"></button>`}).join('');
+ const active=Object.keys(data).filter(k=>dayScore(k)>0).length;$('activeDays').textContent=active+' active day'+(active===1?'':'s');
+ let streak=0;const cursor=new Date(selected+'T12:00:00');if(dayScore(selected)===0)cursor.setDate(cursor.getDate()-1);
+ while(dayScore(`${cursor.getFullYear()}-${String(cursor.getMonth()+1).padStart(2,'0')}-${String(cursor.getDate()).padStart(2,'0')}`)>0&&streak<366){streak++;cursor.setDate(cursor.getDate()-1)}
+ $('streak').textContent='🔥 '+streak+'-day streak';
+}
+function selectHeatDate(key){selected=key;render()}
+function fmtTime(t){let [h,m]=t.split(':').map(Number);return `${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`}
+function toggleTask(id,v){const t=day().tasks.find(x=>x.id===id);if(t){t.done=v;persist();render()}}
+function deleteTask(id){if(confirm('Delete this task?')){day().tasks=day().tasks.filter(t=>t.id!==id);persist();render()}}
+function openModal(t){editId=t?.id||null;$('modalTitle').textContent=t?'Edit task':'Add a task';$('taskName').value=t?.name||'';$('taskDesc').value=t?.desc||'';$('taskTime').value=t?.time||'';$('taskCategory').value=t?.category||'Personal';$('modal').classList.add('open');$('taskName').focus()}
+function editTask(id){openModal(day().tasks.find(t=>t.id===id))}
+$('addTask').onclick=()=>openModal();$('cancel').onclick=()=> $('modal').classList.remove('open');
+$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('open')};
+$('taskForm').onsubmit=e=>{e.preventDefault();const item={id:editId||uid(),name:$('taskName').value.trim(),desc:$('taskDesc').value.trim(),time:$('taskTime').value,category:$('taskCategory').value,done:editId?(day().tasks.find(t=>t.id===editId)?.done||false):false};if(!item.name)return;if(editId){day().tasks=day().tasks.map(t=>t.id===editId?item:t)}else day().tasks.push(item);persist();$('modal').classList.remove('open');render()};
+$('quickForm').onsubmit=e=>{e.preventDefault();const name=$('quickName').value.trim();if(!name)return;day().tasks.push({id:uid(),name,desc:'',time:$('quickTime').value,category:$('quickCategory').value,done:false});persist();$('quickName').value='';$('quickTime').value='';render()};
+$('saveIntent').onclick=()=>{day().intention=$('intention').value.trim();persist();$('saveIntent').textContent='Saved ✓';setTimeout(()=>$('saveIntent').textContent='Save',1200)};
+$('saveNotes').onclick=()=>{day().notes=$('notes').value;persist();$('noteStatus').textContent='Saved ✓';setTimeout(()=>$('noteStatus').textContent='',1500)};
+function changeDate(n){const d=new Date(selected+'T12:00:00');d.setDate(d.getDate()+n);selected=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;render()}
+$('prev').onclick=()=>changeDate(-1);$('next').onclick=()=>changeDate(1);$('todayBtn').onclick=()=>{selected=todayISO();render()};$('date').onchange=e=>{if(e.target.value){selected=e.target.value;render()}};
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(b.dataset.view==='notes')$('notesPanel').scrollIntoView({behavior:'smooth'});else if(b.dataset.view==='routines')alert('Tip: create your usual tasks for each date. Your plans are saved separately by day.');else if(b.dataset.view==='calendar')$('date').showPicker?.()});
+render();
+</script>
+</body></html>
